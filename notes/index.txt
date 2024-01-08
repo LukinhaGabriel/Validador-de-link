@@ -1,0 +1,23 @@
+# Notes
+
+## Promisse
+
+function getFile(filePath){
+    const enconding = "utf-8";
+    fs.promises
+        .readFile(filePath, enconding)
+        .then((text) => console.log(chalk.blue(text)))
+        .catch((err) => treatError(err));
+ }
+
+## Código Síncrono
+
+function getFile(filePath){
+    const enconding = "utf-8";
+    fs.readFile(filePath, enconding, (err, text) => {
+        if(err){
+            treatError(err);
+        }
+        console.log(chalk.blue(text));
+    });
+ }
